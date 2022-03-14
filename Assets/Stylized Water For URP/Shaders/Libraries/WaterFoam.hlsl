@@ -99,8 +99,8 @@ void MobileFoamSample_half(half4 uvs, half2 sampling, SamplerState Sampler, Text
     half2 uv1 = uvs.xy;
     half2 uv2 = uvs.zw;
 
-    half foam1 = saturate(step(cutoff, SAMPLE_TEXTURE2D(tex, Sampler, DistortUV(uv1 + uv2, distortion)).r));
-    half foam2 = saturate(step(cutoff, SAMPLE_TEXTURE2D(tex, Sampler, DistortUV(uv2, distortion)).g));
+    half foam1 = saturate(step(cutoff, SAMPLE_TEXTURE2D(tex, Sampler, DistortUV(uv2, distortion)).r));
+    half foam2 = saturate(step(cutoff, SAMPLE_TEXTURE2D(tex, Sampler, DistortUV(uv1 + uv2, distortion)).g));
 
     Out = half2(foam1, foam2);
 }

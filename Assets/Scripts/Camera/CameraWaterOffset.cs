@@ -8,11 +8,11 @@ public class CameraWaterOffset : MonoBehaviour
 	[Tooltip("Larger value means slower speed")]
 	public float offsetMagnitude;
 
-	private void Update()
+	private void LateUpdate()
 	{
 		Vector2 offset = transform.position;
 
 		Vector4 currOffset = waterBG.GetVector("_SurfaceFoamTilingAndOffset");
-		waterBG.SetVector("_SurfaceFoamTilingAndOffset", new Vector4(-offset.x / offsetMagnitude, -offset.y / offsetMagnitude, currOffset.z, currOffset.w));
+		waterBG.SetVector("_SurfaceFoamTilingAndOffset", new Vector4((-offset.x / offsetMagnitude), (-offset.y / offsetMagnitude), currOffset.z, currOffset.w));
 	}
 }
